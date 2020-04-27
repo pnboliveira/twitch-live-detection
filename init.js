@@ -80,7 +80,7 @@ $(document).ready(function () {
         });
     }
     
-    
+    // Optional Game fetching functions
 
    /*  function set_twitch_stream_status_cont(game_id) {
         $.ajax({
@@ -127,6 +127,8 @@ $(document).ready(function () {
             }
         })
     } */
+
+    // End of Optional Game fetching functions
 
     // This will send the message that the stream is currently offline.
     function set_twitch_offline() {
