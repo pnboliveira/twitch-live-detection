@@ -2,6 +2,9 @@ $(document).ready(function () {
     //This activates the stream check function.
     set_twitch_stream_status();
 
+    // Variable to store a given username.
+    let username = 'BobRoss';
+
     //The variable below is a list of mobile devices a given user
     //may be visiting. This is entirely optional, but recommended
     //if you want to show just the player on mobile.
@@ -45,8 +48,8 @@ $(document).ready(function () {
                 // For more info: https://dev.twitch.tv/docs/authentication
             },
             data: {
-                //'user_login': 'BobRoss'
-              /*   Alternatively, you can also use  */'user_id': '105458682'
+                'user_login': username
+              //   Alternatively, you can also use  'user_id': '105458682'
             },
             error: set_twitch_offline, 
             success: function (response) {
@@ -59,12 +62,17 @@ $(document).ready(function () {
                 // Alternatively, you can also send over a game ID if you want to print
                 // a game name. These functions will be commented.
 
+
+                // OPTIONAL: Store username with the following:
+                // username = response['data'][0]['user_name'];
+
                 if (isMobile.any()) {
                     
-                    jQuery('#stream').append('<h3>Live Feed</h3><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel=bobross" frameborder="0" height="378" width="100%"></iframe></div><div>&nbsp;</div><h4>Join in the conversation over at <a href="https://www.twitch.tv/bobross" target="_blank">our Twitch page!</a></h4>')
+                    jQuery('#stream').append('<h3>Live Feed</h3><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel='+ username +'" frameborder="0" height="378" width="100%"></iframe></div><div>&nbsp;</div><h4>Join in the conversation over at <a href="https://www.twitch.tv/'+ username +'" target="_blank">our Twitch page!</a></h4>')
                     //OR: set_twitch_stream_status_mobile(response['data'][0]['game_id']);
                 } else {
-                    jQuery('#stream').append('<h3>Live Feed</h3><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel=bobross" frameborder="0" height="378" width="100%"></iframe></div><div class="col m4 l4 hide-on-small-only"><iframe src="https://www.twitch.tv/embed/bobross/chat" frameborder="0" height="440" width="100%"></iframe></div>')
+                    
+                    jQuery('#stream').append('<h3>Live Feed</h3><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel='+ username +'" frameborder="0" height="378" width="100%"></iframe></div><div class="col m4 l4 hide-on-small-only"><iframe src="https://www.twitch.tv/embed/'+ username +'/chat" frameborder="0" height="440" width="100%"></iframe></div>')
                     //OR: set_twitch_stream_status_cont(response['data'][0]['game_id']);
                 }
 
@@ -92,7 +100,7 @@ $(document).ready(function () {
                     return;
                 }
 
-                jQuery('#stream').append('<div class="container"><div class="row"><div class="col s12 m12 l12"><h3><b>Live Feed</b></h3><hr /></div></div><div><div class="row center"><div class="col m8 l8 hide-on-small-only"><div class="video-container"><iframe src="https://player.twitch.tv/?channel=bobross" frameborder="0" height="378" width="100%"></iframe></div></div><div class="col m4 l4 hide-on-small-only"><iframe src="https://www.twitch.tv/embed/bobross/chat" frameborder="0" height="440" width="100%"></iframe></div></div></div></div>')
+                jQuery('#stream').append('<h3>Live Feed</h3><h6>Currently streaming '+ response['data'][0]['name'] + '</h6><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel='+ username +'" frameborder="0" height="378" width="100%"></iframe></div><div class="col m4 l4 hide-on-small-only"><iframe src="https://www.twitch.tv/embed/'+ username +'/chat" frameborder="0" height="440" width="100%"></iframe></div>')
             }
         })
     } */
@@ -115,7 +123,7 @@ $(document).ready(function () {
                     return;
                 }
 
-                jQuery('#stream').append('<div class="container"><div class="row"><div class="col s12 m12 l12"><h3><b>Live Feed</b></h3><hr /></div></div><div class="section scrollspy"><div class="row center"><div class="col s12"><div class="video-container"><iframe src="https://player.twitch.tv/?channel=bobross" frameborder="0" height="378" width="100%"></iframe></div></div><div class="col s12">&nbsp;</div><div class="col s12"><h4>Join in the conversation over at <a href="https://www.twitch.tv/bobross" target="_blank">our Twitch page!</a></h4></div></div></div></div>')
+                jQuery('#stream').append('<h3>Live Feed</h3><h6>Currently streaming '+ response['data'][0]['name'] + '</h6><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel='+ username +'" frameborder="0" height="378" width="100%"></iframe></div><div>&nbsp;</div><h4>Join in the conversation over at <a href="https://www.twitch.tv/'+ username +'" target="_blank">our Twitch page!</a></h4>')
             }
         })
     } */
