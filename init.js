@@ -30,7 +30,7 @@ $(document).ready(function () {
         }
     };
 
-    // The Twitch API uses AJAX requests for transporting data, 
+    // The Twitch API uses JSON requests for transporting data, 
     // whether it's their streams, users or games.
     // I recommend using Insomnia to test out the data you send or
     // receive. For more info on these references, visit
@@ -66,6 +66,9 @@ $(document).ready(function () {
                 // OPTIONAL: Store username with the following:
                 // username = response['data'][0]['user_name'];
 
+                // If there is a success in the response, we will append HTML to a given div
+                // with a corresponding ID.
+                
                 if (isMobile.any()) {
                     
                     jQuery('#stream').append('<h3>Live Feed</h3><hr /><div class="video-container"><iframe src="https://player.twitch.tv/?channel='+ username +'" frameborder="0" height="378" width="100%"></iframe></div><div>&nbsp;</div><h4>Join in the conversation over at <a href="https://www.twitch.tv/'+ username +'" target="_blank">our Twitch page!</a></h4>')
