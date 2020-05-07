@@ -42,9 +42,10 @@ $(document).ready(function () {
             url: 'https://api.twitch.tv/helix/streams',
             dataType: 'json',
             headers: {
-                'Authorization': 'Bearer <token>' 
+                'Authorization': 'Bearer <token>' ,
+                'Client-ID': '<application client_id>' 
                 // Starting April 30th 2020, you need to generate an authentication
-                // token for your application to call Twitch API requests.
+                // token and a Client-ID for your application to call Twitch API requests.
                 // For more info: https://dev.twitch.tv/docs/authentication
             },
             data: {
@@ -91,7 +92,8 @@ $(document).ready(function () {
             url: 'https://api.twitch.tv/helix/games',
             dataType: 'json',
             headers: {
-                'Authorization': 'Bearer <token>'
+                'Authorization': 'Bearer <token>',
+                'Client-ID': '<application client_id>' 
             },
             data: {
                 'id': game_id
@@ -114,7 +116,8 @@ $(document).ready(function () {
             url: 'https://api.twitch.tv/helix/games',
             dataType: 'json',
             headers: {
-                'Authorization': 'Bearer <token>'
+                'Authorization': 'Bearer <token>',
+                'Client-ID': '<application client_id>' 
             },
             data: {
                 'id': game_id
